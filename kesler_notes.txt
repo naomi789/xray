@@ -1,0 +1,31 @@
+One big addition you haven't seen yet is the ability to copy and paste styles from one element to another element. These elements don't even need to exist on the same page. And when you paste the element styles, you get an instant preview of those changes with a dialog that allows you to toggle on and off the individual styles that are getting transferred. I think this is a big addition because it allows us to pretty much cover the entire use case of Web Crystal. 
+
+Something like this
+
+
+
+Web Crystal contributions
+A novel example-based web design tool for extracting and combining styling information from existing websites, and for helping designers understand how existing sites use HTML and CSS to create desired appearances. This includes how to achieve the positioning of elements. 
+The novel use of automatically generated hierarchical questions and explanations about existing website styling information, in combination with element selection techniques to facilitate the extraction, combination, and understanding of existing website styling code. The explanations included generated code in a variety of user selected formats (rather than code extracted from the source examples) that will reproduce the element. 
+A between-subjects evaluation of the prototype system compared to standard tools for copying desired HTML and CSS from existing websites. This evaluation showed that WebCrystal users had significantly higher task completion rate and faster task completion time in reproducing web elements from a given web page, compared with people using Firebug [5], a state-of-the-art web development tool.
+  
+Xray contributions
+Users can adjust fonts/colors/margin/padding, download those changes, and give them to the developer (a. that is nice for the developer because they know exactly what they should do and b. it is nice for the designers because revisions are more likely to turn out as they want them, decreasing the likelihood of an extra round of revisions). 
+Changes persist across page reloads. Changes to symbols persist not only across page reloads but also across different pages.
+The use of design systems to assist the designer in making changes, and alerting the designer to aesthetic choices that don't fall within the prescribed design system.
+An export system that keeps track of changes and provides a final visual changelog that can be given as a deliverable to a programmer showing the exact changes that need to be made.
+A novel web design tool for modifying existing website styles, and for helping designers understand how existing sites use HTML and CSS to create desired aesthetics, including the positioning of elements.
+Users can copy styles from examples on other websites. They can get a live preview of how those styles will look on their page and can pick and choose which styles to paste. This means that styles from several sources can be copied to the same paste element.
+Similar to Web Crystal #3. 
+
+Thoughts for the introduction: Developers are the gatekeepers over production. Any changes designers want to make to the end product have to go through the developers. This tool helps improve designer-developer communication. Win.
+
+Contributions.
+1. Reduce the barrier for designers to make style changes on live websites. (Should should increase experimentation.)
+2. Keep track of all changes made and produce a document that can be given to a programmer detailing all changes.
+3. Improve site consistency by using the product's design system to help designers by a) only showing styling options that exist in the design system (this can be overridden) and b) highlighting where the current page aesthetics violate the design system, so these can be fixed or the design system can be updated.
+4. Visualize element styles (including transparent styles e (e.g., margin and padding)) to educate designers on how a website was created and how elements are positioned.
+5. Copy styles across elements. This can occur between elements on the same page, across different pages using the same design system, or across completely separate pages using completely different design systems. When these styles are pasted, the user can immediately see how they fit in with the larger webpage and toggle on and off individual style changes before applying the final style. Styles from multiple elements can be transferred to the same paste element by changing the copy source.
+6. A user study evaluating the prototype system compared to the standard design to developer flow in practice today.
+
+We don't want to list 6 contributions. We definitely want 3 just like WebCrystal. So some of these might could be combined, and others left out of the contributions and just focused on when we discuss the tool.
