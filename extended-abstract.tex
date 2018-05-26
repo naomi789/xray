@@ -36,7 +36,8 @@
 % re-using, if desired).  Use \emtpyauthor when submitting for review
 % so you remain anonymous.
 \def\plaintitle{
-XRAY: Inspector Tools For Designers} 
+XRAY: Inspector Tools For Designers
+} 
 \def\plainauthor{First Author, Second Author, Third Author,
 % Fourth Author, Fifth Author, Sixth Author
   }
@@ -127,9 +128,8 @@ XRAY: Inspector Tools For Designers}
 % Do not change the page size or page settings.
 \begin{abstract}
 Examples, both in the form of web templates and snippets of code, are widely used in the creation of websites. Numerous tools have been created to facilitate developer's borrowing of code from live websites and galleries. 
-These include in-browser developer tools, firebug, and other tools. However, little exploration has been done on the experience of designers working on partially-developed or live sites. This paper introduces XRAY, inspector tools for designers, which allow the designer to adjust fonts, colors, margins,
-% can't get the below to compile?
-and padding without ever needing to look at HTML or CSS. This facilitates the designer's AAA, BBB, CCC, and encourages their use of a design system. Our user study showed that experienced designers were xx\% more efficient and yy\% more successful when they used xray than the standard industry tools. 
+These include in-browser developer tools, firebug, and other tools. However, little exploration has been done on the experience of designers working on partially-developed or live sites. This paper introduces XRAY, inspector tools for designers, which allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. Moreover, XRAY 
+promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. Our user study showed that experienced designers were xx\% more efficient and yy\% more successful when they used xray than the standard industry tools. 
 \end{abstract}
 
 \keywords{\plainkeywords}
@@ -143,24 +143,27 @@ Both programmers and web designers look at websites for design inspiration and a
 
 Currently, the status quo is (explain how it works for most designers). (Most designers use tools and processes like these to tweak existing websites (markup in sketch, emails, meeting in person, etc). 
 
-We contribute XRAY, design tools for developers, a series of novel design tools that:
+We contribute XRAY, design tools for developers, a set of novel design tools that allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. 
+
+These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. 
 First, increase experimentation by: 
 \begin{itemize}
-    \item [Learn from others / Increase consistency / Speedup making changes] 
+    \item 
+    % \item [Learn from others / Increase consistency / Speedup making changes] 
     
-    Allows designer to copy styles from other elements. 
-    \item [Developer / Designer communication] 
+    % Allows designer to copy styles from other elements. 
+    % \item [Developer / Designer communication] 
     
-    Keep track of all changes made and produce a document that can be given to a programmer detailing all changes. Track all changes
-    \item[Developer / Designer communication] 
+    % Keep track of all changes made and produce a document that can be given to a programmer detailing all changes. Track all changes
+    % \item[Developer / Designer communication] 
     
-    Reduce the barrier for designers to make style changes on live websites. (Should say increase experimentation.) Allows designers to work in the same medium as developers. Instead of working in a graphical tool like Sketch, they are working with the final medium.
-    \item[Learn from others / Developer+Designer communication] 
+    % Reduce the barrier for designers to make style changes on live websites. (Should say increase experimentation.) Allows designers to work in the same medium as developers. Instead of working in a graphical tool like Sketch, they are working with the final medium.
+    % \item[Learn from others / Developer+Designer communication] 
     
-    Visualize element styles (including transparent styles e (e.g., margin and padding)) to educate designers on how a website was created and how elements are positioned. What does this mean??
+    % Visualize element styles (including transparent styles e (e.g., margin and padding)) to educate designers on how a website was created and how elements are positioned. What does this mean??
 \end{itemize}
 
-
+Moreover, XRAY promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. 
 Second, promotes the use of design systems by: 
 \begin{itemize}
     \item only showing styling options that exist in the design system (this can be overridden) 

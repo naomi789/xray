@@ -1,0 +1,290 @@
+\documentclass{sigchi}
+
+% Use this section to set the ACM copyright statement (e.g. for
+% preprints).  Consult the conference website for the camera-ready
+% copyright statement.
+
+% Copyright
+\CopyrightYear{2016}
+%\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+% DOI
+\doi{http://dx.doi.org/10.475/123_4}
+% ISBN
+\isbn{123-4567-24-567/08/06}
+%Conference
+\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
+%Price
+\acmPrice{\$15.00}
+
+% Use this command to override the default ACM copyright statement
+% (e.g. for preprints).  Consult the conference website for the
+% camera-ready copyright statement.
+
+%% HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
+%% Please note you need to make sure the copy for your specific
+%% license is used here!
+% \toappear{
+% Permission to make digital or hard copies of all or part of this work
+% for personal or classroom use is granted without fee provided that
+% copies are not made or distributed for profit or commercial advantage
+% and that copies bear this notice and the full citation on the first
+% page. Copyrights for components of this work owned by others than ACM
+% must be honored. Abstracting with credit is permitted. To copy
+% otherwise, or republish, to post on servers or to redistribute to
+% lists, requires prior specific permission and/or a fee. Request
+% permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
+% \emph{CHI '16},  May 07--12, 2016, San Jose, CA, USA \\
+% ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
+% DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
+% }
+
+% Arabic page numbers for submission.  Remove this line to eliminate
+% page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+% Load basic packages
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage[pdflang={en-US},pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% If you want to use todo notes, marginpars etc. during creation of
+% your draft document, you have to enable the "chi_draft" option for
+% the document class. To do this, change the very first line to:
+% "\documentclass[chi_draft]{sigchi}". You can then place todo notes
+% by using the "\todo{...}"  command. Make sure to disable the draft
+% option again before submitting your final document.
+\usepackage{todonotes}
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+
+\def\plaintitle{XRAY: Inspector Tools For Designers}
+\def\plainauthor{First Author, Second Author, Third Author,
+  Fourth Author, Fifth Author, Sixth Author}
+\def\emptyauthor{}
+\def\plainkeywords{Web design; design systems; inspector tools; experimentation; human factors; developers; designers. 
+}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+% Use \plainauthor for final version.
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  pdfdisplaydoctitle=true, % For Accessibility
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+  hypertexnames=false
+}
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{\plaintitle}
+
+\numberofauthors{3}
+\author{%
+  \alignauthor{Leave Authors Anonymous\\
+    \affaddr{for Submission}\\
+    \affaddr{City, Country}\\
+    \email{e-mail address}}\\
+  \alignauthor{Leave Authors Anonymous\\
+    \affaddr{for Submission}\\
+    \affaddr{City, Country}\\
+    \email{e-mail address}}\\
+  \alignauthor{Leave Authors Anonymous\\
+    \affaddr{for Submission}\\
+    \affaddr{City, Country}\\
+    \email{e-mail address}}\\
+}
+
+\maketitle
+
+\begin{abstract}
+Examples, both in the form of web templates and snippets of code, are widely used in the creation of websites. Numerous tools have been created to facilitate developer's borrowing of code from live websites and galleries. 
+These include in-browser developer tools, firebug, and other tools. However, little exploration has been done on the experience of designers working on partially-developed or live sites. This paper introduces XRAY, inspector tools for designers, which allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. Moreover, XRAY 
+promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. Our user study showed that experienced designers were xx\% more efficient and yy\% more successful when they used xray than the standard industry tools. 
+\end{abstract}
+
+\category{H.5.m.}{Information Interfaces and Presentation
+  (e.g. HCI)}{Miscellaneous} \category{See
+  \url{http://acm.org/about/class/1998/} for the full list of ACM
+  classifiers. This section is required.}{}{}
+
+\keywords{\plainkeywords}
+\section{Introduction}
+Both programmers and web designers look at websites for design inspiration and at snippets of code for guidance. Researchers and industry professionals have made developers tools to enable these programmers and designers to learn more from these examples. However, many of these tools are geared towards those who are comfortable with code. 
+
+Currently, the status quo is (explain how it works for most designers). (Most designers use tools and processes like these to tweak existing websites (markup in sketch, emails, meeting in person, etc). 
+
+We contribute XRAY, design tools for developers, a set of novel design tools that allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. 
+
+These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. 
+First, increase experimentation by: 
+\begin{itemize}
+    \item Automating consistency by allowing percolating changes (A. Facilitates designer to copy styles from other elements)
+    \item Makes the technical aspects of coding a website more approachable for designers (A. Allows designer to work in same medium as developers (as opposed to graphical tools like sketch)
+B. Allows designer to better understand how websites are made/visualize element style and positioning
+i. Margin v. padding, etc)
+
+    \item Improve designer-developer communication (A. Keep track of all changes
+B. Can produce a document to show a programmer all changes C. Can have two people edit the same site at one)
+
+\end{itemize}
+
+Moreover, XRAY promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. 
+Second, promotes the use of design systems by: 
+\begin{itemize}
+    \item only showing styling options that exist in the design system (this can be overridden) 
+    \item highlighting where the current page aesthetics violate the design system, so these can be fixed or the design system can be updated.
+\end{itemize}{}
+
+Third, we contribute a user study showing the benefits of these features. The results can be summarized as: 
+\begin{itemize}
+    \item (things that we learn)
+\end{itemize}
+
+\section{Related Works}
+\begin{itemize}
+    \item Use of examples in design galleries
+    \item Patterns found after design mining
+    \item Actual design patterns for websites
+    \item Using snippets of code from/understanding live sites
+    \item Other tools for developers
+    \item Transferring CSS from one site to other
+    \item But there are few tools for designers (list)
+    \item Sketching tools (Hashimoto 2005)
+    \item Helping non-programmers select code (Dinah 2011)
+    \item Overall, designers have it really rough, and a lot of research seems to be focusing on designers who can code and coders who can design. That isn’t what reality is like: many people in industry can either code OR design. 
+    \item Why are design systems important? What’s their benefit? [Maybe this belongs in the intro, but we’ll want to have a reference].
+    \item Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.
+\end{itemize}
+
+\section{Interface and Features of XRAY}
+First: overall things. Is a chrome plugin? Can use on any website. 
+
+Lets you adjust and change: 
+Fonts (family, weight), colors, margin, padding
+Automatically downloads Google fonts to make them available on the website. This is often a very tedious task that requires the designer to either install the fonts locally or have access to the code.
+You can copy and paste styles from one element to the next
+Doesn’t need to be same page
+Get an instant preview of those changes
+Can toggle on and off individual styles 
+This means several sources can be pasted into same element (only really important because Web Crystal focuses a lot on this).
+Lets you download your changes (to give to developer) (final visual changelog)
+Developer now knows exactly what to do
+Which will result in less work for designer as well
+Whitespace is broken down into padding and margin. Normal redline documents only show spacing, but not whether it is margin or padding.
+Changes persist across page reloads 
+Changes to symbols persist not only across page reloads but also across the whole website, even on different pages. 
+Can have changes permeate through a whole page
+Many of these things help you see the design system (trees v. forest) 
+Visualize website structure. Margin & Padding is invisible and it is often difficult to know how whitespace is assigned. This tool colors the whitespace to show the structure.
+Gives a live audit of the design system to show elements that diverge. 
+I have implemented this yet, but we could make this collaborative, so two people could make live edits to a website collaboratively. It’s not very practical I don’t think, but it is shiny.
+A corollary to this is instead of exporting a file to give to developers, the designer can just share the session with a developer and they can have a live editor of the changes.
+
+
+\section{User Study}
+\subsection{Participants}
+12 students
+12 professionals
+
+\subsection{Tasks}
+A, B, C (or) A, B
+
+\subsection{Procedure}
+And fill in this section too
+
+\subsection{Results}
+And put some graphs and stats and stuff in here
+
+\section{Discussion (hard to write until we have results)}
+Implications of results to science
+Implications of results to practice 
+Limitations
+Further research 
+
+
+\section{Conclusion}
+Discuss benefits...
+
+Discuss harm/risks/dangers/drawbacks...
+
+Discuss future work/room to grow...
+
+
+
+
+
+
+
+
+% BALANCE COLUMNS
+\balance{}
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+% \nocite{*}
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{sample}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
