@@ -4,6 +4,13 @@
 % preprints).  Consult the conference website for the camera-ready
 % copyright statement.
 
+
+%%% Local Variables:
+\newcommand{\xray}{XRAY\xspace}
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
 % Copyright
 \CopyrightYear{2016}
 %\setcopyright{acmcopyright}
@@ -58,6 +65,8 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{textcomp}
+\usepackage{xspace} % naomi
+
 
 % Some optional stuff you might like/need.
 \usepackage{microtype}        % Improved Tracking and Kerning
@@ -71,7 +80,8 @@
 % "\documentclass[chi_draft]{sigchi}". You can then place todo notes
 % by using the "\todo{...}"  command. Make sure to disable the draft
 % option again before submitting your final document.
-\usepackage{todonotes}
+\usepackage{todonotes} % naomi
+\usepackage[normalem]{ulem} % also naomi
 
 % Paper metadata (use plain text, for PDF inclusion and later
 % re-using, if desired).  Use \emtpyauthor when submitting for review
@@ -154,10 +164,14 @@
 \maketitle
 
 \begin{abstract}
-Examples, both in the form of web templates and snippets of code, are widely used in the creation of websites. Numerous tools have been created to facilitate developer's borrowing of code from live websites and galleries. 
-These include in-browser developer tools, firebug, and other tools. However, little exploration has been done on the experience of designers working on partially-developed or live sites. This paper introduces XRAY, inspector tools for designers, which allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. Moreover, XRAY 
-promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. Our user study showed that experienced designers were xx\% more efficient and yy\% more successful when they used xray than the standard industry tools. 
+Examples are widely used by both designers and developers in the creation of websites. Numerous tools have been created to facilitate developers' borrowing of code from live websites and design examples. However, little work has been done to improve the experience of designers working on partially-developed or live sites. This paper introduces \xray, inspector tools for designers (Figure~\ref{fig:xray_screenshot}). Unlike traditional inspector tools, \xray allows the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS, making this technical, traditionally code-based task more approachable for designers. \xray promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. \xray also improves designer-developer communication by allowing people in different locations are able to make live edits to a website collaboratively. \xray allows users to export a document with all changes at the end of their session. 
+Moreover, a 12 person user study with novices and a 12-person user study with professional designers showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools. 
 \end{abstract}
+
+
+% Running questions/comments: 
+% are we calling users: users? people? designers? 
+% I know every other sentence starts with the word "XRAY" and I will eventually get around to fixing it
 
 \category{H.5.m.}{Information Interfaces and Presentation
   (e.g. HCI)}{Miscellaneous} \category{See
@@ -166,41 +180,77 @@ promotes the use of design systems by only suggesting styling options that exist
 
 \keywords{\plainkeywords}
 \section{Introduction}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/windows_lunch.jpg}
+    \caption{A screenshot of the \xray user interface and the menu for [fonts? colors? margin/padding?]}  
+    \label{fig:xray_screenshot}
+\end{figure}
+
 Both programmers and web designers look at websites for design inspiration and at snippets of code for guidance. Researchers and industry professionals have made developers tools to enable these programmers and designers to learn more from these examples. However, many of these tools are geared towards those who are comfortable with code. 
 
-Currently, the status quo is (explain how it works for most designers). (Most designers use tools and processes like these to tweak existing websites (markup in sketch, emails, meeting in person, etc). 
+While there are some designers who can write code, and there are some developers who understand design, most professionals in industry specialize. Creating an app, website, or any product with a UI becomes a collaborative and iterative process. For example, if a company was preparing to launch a new website, the designer would create a mockup of how the product should look and send it to the developer. The developer would code it, and send it back to the designer. No first draft is flawless and the designer now needs to communicate the mistakes to the developer. 
 
-We contribute XRAY, design tools for developers, a set of novel design tools that allow the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS. 
+Some designers will meet with the developers, sitting next to them and explaining what needs to be changed. However, that is very time-consuming for both the developer and designer. Other designers might send an email with a checklist of what needs to be fixed, but matching the block of test to the website gets confusing very quickly. In reality, it is most common for the developer to ``redline'' by marking up a screenshot of the website using tools like Sketch or InVision, such as in Figure~\ref{fig:markup_redline_website} as taken from Moore's 2017 Medium article \cite{digital_whiteboards_moore_medium_2017}. 
 
-These features were designed to increase experimentation by automating consistency (percolating changes), making this technical, code-based task more approachable for designers by creating a UI similar to (??) instead of traditional inspector tools, and improving designer-developer communication by allowing designers to export a document with all changes in a format that developers will be comfortable with. 
-First, increase experimentation by: 
-\begin{itemize}
-    \item Automating consistency by allowing percolating changes (A. Facilitates designer to copy styles from other elements)
-    \item Makes the technical aspects of coding a website more approachable for designers (A. Allows designer to work in same medium as developers (as opposed to graphical tools like sketch)
-B. Allows designer to better understand how websites are made/visualize element style and positioning
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/screenshot_redline_found_google.png}
+    \caption{Example of a ``redline'' or markup of website that a designer might send to a developer}
+    % https://medium.com/ux-power-tools/invision-freehand-digital-whiteboarding-bf83639c1184
+    % \cite{digital_whiteboards_moore_medium_2017
+    \label{fig:markup_redline_website}
+\end{figure}
+
+The ability to write comments on a screen simplifies the revision process. Instead of writing an essay for each bullet point (``the icon of a drill on the top left of the home page should be enclosed by a circle instead of a square''), the designer can draw an arrow and say ``should be a circle.'' 
+
+However, when it comes to colors, padding, and other sizing issues, detail is key. Instead of saying ``this black should match the black background on the homescreen'', why not just tell the developer the hexcode of the color it should be? Additionally, prior work shows the benefits of experimentation. Ideally, when the designer notices that the line height is too large, they would have the opportunity to see what the page would look like with 1.0em, 1.1em, and 1.2em before telling the developer which one is best. 
+
+Currently, the programmers in this situation are gatekeepers: they control the design and aesthetics of a finished product even though they do not have the knowledge or training that a designer does. The designers are in the uncomfortable position of knowing exactly how the final product should look, but are unable to create it themselves. 
+
+
+To help address this problem, we built \xray (Figure~\ref{fig:xray_screenshot}), design tools for developers. Unlike traditional inspector tools, \xray allows the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS, making this technical, traditionally code-based task more approachable for designers. ALSO, (A. Allows designer to work in same medium as developers (as opposed to graphical tools like sketch), and B. Allows designer to better understand how websites are made/visualize element style and positioning
 i. Margin v. padding, etc)
 
-    \item Improve designer-developer communication (A. Keep track of all changes
-B. Can produce a document to show a programmer all changes C. Can have two people edit the same site at one)
+\xray makes the following contributions: 
+
+\begin{itemize}
+    \item A novel set of inspector tools, designed for those who do not need to understand how HTML and CSS work. \xray allows users to adjust fonts, colors, margins, and padding on live sites without ever looking at any code. 
+    
+    \item \xray focuses on design systems. By only suggesting choices that are in the current design system, it helps novice designers be consistent. \xray provides the option to override these design guidelines, allowing users to expand the design system by adding new rules. When users redefine an aspect of their design system, \xray automates consistency, letting the changes percolate through not only the current page but the entire website, persisting even after page reloads. \xray highlights where a site breaks from the design systems, letting users quickly identify possible issues. 
+    
+    \item Designer-developer communication is improved because people in different locations are able to make live edits to a website collaboratively. At the end of a session, designers can export a document with all of their final changes noted in HTML and CSS to give to the developer.  
+    
+    \item A within-subject evaluation of \xray in comparison to the industry standard of using Sketch(c) to note flaws in a website. We had a total of 24 partcipants, half of whom were design professionals with a minimum of five years' experience, and half of whom were design students at our university. Our results showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools.
 
 \end{itemize}
 
-Moreover, XRAY promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. 
-Second, promotes the use of design systems by: 
-\begin{itemize}
-    \item only showing styling options that exist in the design system (this can be overridden) 
-    \item highlighting where the current page aesthetics violate the design system, so these can be fixed or the design system can be updated.
-\end{itemize}{}
+% \begin{itemize}
 
-Third, we contribute a user study showing the benefits of these features. The results can be summarized as: 
-\begin{itemize}
-    \item (things that we learn)
-\end{itemize}
+%     \item allowing people in different locations are able to make live edits to a website collaboratively (Improve designer-developer communication)
+%     \item \xray allows users to export a document with all changes at the end of their session (again, Improve designer-developer communication)
+%     \item Moreover, a 12 person user study with novices and a 12-person user study with professional designers showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools. 
+
+
+
+
+% done: 
+%     \item promotes use of design system - shows where site is breaking design system. Only suggests fonts/colors/margins that are in design system (this can be overriden). 
+%     \item percolating changes, which facilitates designers to copy styles from other elements 
+% \end{itemize}
+
+% \begin{itemize}
+%     \item \xray promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. (in other words: promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system.)  only showing styling options that exist in the design system (this can be overridden). Highlighting where the current page aesthetics violate the design system, so these can be fixed or the design system can be updated.
+%     \item These features were designed to increase experimentation by automating consistency (percolating changes), (talk about how this facilitates designer to copy styles from other elements)
+%     \item \xray also improves designer-developer communication by allowing people in different locations are able to make live edits to a website collaboratively.
+%     \item \xray allows users to export a document with all changes at the end of their session (again, Improve designer-developer communication)
+%     \item Moreover, a 12 person user study with novices and a 12-person user study with professional designers showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools. 
+% \end{itemize}
 
 \section{Related Works}
-
-
-
+MAYBE RE-ARRANGE ORIGINIAL RELATED WORKS TO FIT THIS PATTERN? 
 \begin{itemize}
     \item Use of examples in design galleries
     \item Patterns found after design mining
@@ -209,12 +259,23 @@ Third, we contribute a user study showing the benefits of these features. The re
     \item Other tools for developers
     \item Transferring CSS from one site to other
     \item But there are few tools for designers (list)
-    \item Sketching tools (Hashimoto 2005)
-    \item Helping non-programmers select code (Dinah 2011)
+    \item Sketching tools \cite{retrieving_websites_with_sketches_example_based_design_hashimoto_igarashi_EUROGRAPHICS_EWSBIM_2005}
+    \item Helping non-programmers select code \cite{dinah_non_programmers_coding_Gross_CHI_2011}
     \item Overall, designers have it really rough, and a lot of research seems to be focusing on designers who can code and coders who can design. That isn’t what reality is like: many people in industry can either code OR design. 
     \item Why are design systems important? What’s their benefit? [Maybe this belongs in the intro, but we’ll want to have a reference].
     \item Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.
 \end{itemize}
+
+
+(first pragraph explains how people copy aspects of designs/look at others for inspiration). 
+
+Designers often look at examples to find inspiration. Current example-finding practices include search engines to examine text on webpages, templates which show designs without any content or context, and design galleries. 
+
+Recent work has considered the use of design galleries to assist in web design \cite{dtour_Ritchie_UIST_2011, interactive_example_galleries_Lee_CHI_2010} and in animation \cite{designGalleries_mitsubishi_Marks_SIGGRAPH_1997}. 
+
+[Author]'s [year] paper said there were over [number] of websites: with the multitude of examples of websites out there, some researchers have wondered how we can better harness that data. Webzeitgeist and other research projects have delved into the world of design-mining websites \cite{Webzeitgeist_Kumar_CHI_2013, learning_on_web_design_Satyanarayan_CHI_2012} and mobile apps \cite{mining_mobile_applications_alharbi_phdthesis_2016}. 
+
+Other researchers have focused on smaller-scale projects. For instance, retargeting a design to a new size or aspect ratio \cite{learning_layouts_single_page_design_o_donovan_IEEE_2014}, or reformatting text \cite{review_automatic_docu_formatting_Hurst_DocEng_2009}, or both text and images \cite{probabilistic_auto_document_composition_Damera_Venkata_DocEng_2011}. Others have focused on getting one document to be easily readable on different screen sizes and shapes \cite{adaptiveGridBasedLayout_Jacobs_SIGGRAPH_2003}.
 
 \section{Interface and Features of XRAY}
 First: overall things. Is a chrome plugin? Can use on any website. 
@@ -235,7 +296,7 @@ Changes persist across page reloads
 Changes to symbols persist not only across page reloads but also across the whole website, even on different pages. 
 Can have changes permeate through a whole page
 Many of these things help you see the design system (trees v. forest) 
-Visualize website structure. Margin & Padding is invisible and it is often difficult to know how whitespace is assigned. This tool colors the whitespace to show the structure.
+Visualize website structure. Margin \& Padding is invisible and it is often difficult to know how whitespace is assigned. This tool colors the whitespace to show the structure.
 Gives a live audit of the design system to show elements that diverge. 
 I have implemented this yet, but we could make this collaborative, so two people could make live edits to a website collaboratively. It’s not very practical I don’t think, but it is shiny.
 A corollary to this is instead of exporting a file to give to developers, the designer can just share the session with a developer and they can have a live editor of the changes.
@@ -275,19 +336,14 @@ Discuss future work/room to grow...
 
 
 
-
 % BALANCE COLUMNS
 \balance{}
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
-\nocite{*}
+% \nocite{*}
 \bibliographystyle{SIGCHI-Reference-Format}
-\bibliography{sample}
+\bibliography{xray}
 
 \end{document}
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
