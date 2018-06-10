@@ -184,7 +184,7 @@ Moreover, a 12 person user study with novices and a 12-person user study with pr
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{figures/windows_lunch.jpg}
+    \includegraphics[width=\columnwidth]{figures/image.png}
     \caption{A screenshot of the \xray user interface and the menu for [fonts? colors? margin/padding?]}  
     \label{fig:xray_screenshot}
 \end{figure}
@@ -211,12 +211,13 @@ However, when it comes to colors, padding, and other sizing issues, detail is ke
 % of colors, fonts, spacing rules, and a library of pre-built widgets used in one website, app, or company.  
 Currently, the developers are gatekeepers: they control the design and aesthetics of a finished product even though they do not have the knowledge or training that a designer does. The designers are in the uncomfortable position of knowing exactly how the final product should look, but are unable to create it themselves. 
 
-(fix this next paragraph \#whatadisaster)
+In order to provide designers with more control, many companies are creating design systems. Just as developers use a style guide in order to have a standardized way of doing things, designers create design systems. 
+% Many customers associate certain fonts or color palettes with a particular company logo. 
+Most companies strive to be consistent in their use of colors and fonts across websites, emails, advertising campaign, and apps [cite]. Design systems evolved from these style guides. Couldwell walks through how WeWork created a design system which contains not only font families, font sizes, and colors, but also templates, patterns (which include recurring elements or practices like navigation, cards, tables, or alerts), and components (pre-built widgets, such as buttons, sliders, or inputs, selects, toggles, avatras, tooltips, and etc) \cite{design_system_at_plasma_couldwell_medium_2017}. 
 
+% there aren't research papers about design systems (site that airbnb paper, large companies that have these design systems) 
 
-In order to provide designers with more control, many companies are creating design systems. Just as developers use a style guide in order to have a standardized way of doing things, designers create design systems. In order to create a brand image for customers [fix English], companies pick a color palette and a set of fonts to use on their websites, emails, advertising campaign, and app [cite]. Design systems evolved from style guides. In a 2017 Medium article, Couldwell defined explained his company's design system contains a set of text styles, color palettes, widgets, templates, and patterns \cite{design_system_at_plasma_couldwell_medium_2017}. 
-
-% One key part of design is consistency [cite some papers].
+% (we need this common vocabulary/language/common ground to facilitate designer/developer communication. Take what exists in the code and get it into figma/other graphic editor environments. \#unification) 
 
 When developers and designers face seemingly small questions like ``How should we format the time/date/currency?'' or ``What kind of color/typeface/button should I use?'' or ``Should this be sentence case or title case?'', the design system can evolve to hold these answers \cite{what_is_design_system_couldwell_medium_2017}. Often a [file type] or [photoshop file], the design system can contain images of what these fonts, colors, and widgets look like, as well as the code to make them. This prevents developers from making the same buttons over and over for each website, and ensures that the color, shadow, and animated reaction for each click or hover over the button will be exactly the same \cite{what_is_design_system_couldwell_medium_2017}. 
 
@@ -240,89 +241,65 @@ In order to 1. improve the experience of web designers, 2. improve their collabo
 
 
 \section{Related Works}
-% \\important: transferring CSS from one site to another (get that in related works!!) 
+Currently, in industry, the best way for designers to give feedback to developers is through marked up screenshots created in Sketch. The purpose of \xray is to allow designers more control over the design of a website. In essence, \xray is a designer's version of the developer tools that exist in most browsers. First, we discuss research and tools to assist design. Second, we discuss research and tools for development. Third, we discuss why \xray is needed to help bridge the divide between developers and designers.  
 
-% \\there aren’t research papers about design systems (site that airbnb paper, large companies that have these design systems) (we need this common vocabulary/language/common ground to facilitate designer/developer communication. Take what exists in the code and get it into figma/other graphic editor environments. #unification) 
+\subsection{Designers}
+Examples are a critical part of the creative process \cite{getting_inspired_designs_in_creativity_Herring_CHI_2009}. Research has discussed the role of examples in non-routine design \cite{creativity_in_design_activities_Bonnardel_CandC_1999}, how different examples are used in design \cite{getting_inspired_designs_in_creativity_Herring_CHI_2009}, and the impact of examples \cite{effects_of_examples_on_design_activities_Purcell_1992_kbc}. Researchers have created galleries of designs in order to provide designers with examples. Because web search has historically been done with keywords \cite{cueflik_interactive_concept_leraning_Fogarty_CHI_2008}, looking for examples with specific characteristics can be difficult. The 1997 Design Galleries presented users with a variety of options to assist in parameter setting for animation, image rendering, or volume rendering \cite{designGalleries_mitsubishi_Marks_SIGGRAPH_1997}. More recent work has included curated databases of web designs, allowing users to search for examples with similar qualities or look for examples that vary on a particular axis \cite{interactive_example_galleries_Lee_CHI_2010}, search for examples with stylistic keywords \cite{dtour_Ritchie_UIST_2011} or via the input of a rough sketch \cite{retrieving_websites_with_sketches_example_based_design_hashimoto_igarashi_EUROGRAPHICS_EWSBIM_2005}. 
 
-Researchers are well aware that looking at examples to find inspiration is a key part of the creative process for both designers [cite things] and developers [cite things]. Recent work has considered the use of design galleries to assist in web design \cite{dtour_Ritchie_UIST_2011, interactive_example_galleries_Lee_CHI_2010} and in animation \cite{designGalleries_mitsubishi_Marks_SIGGRAPH_1997}. Webzeitgeist and other research projects have delved into the world of design-mining websites \cite{Webzeitgeist_Kumar_CHI_2013, learning_on_web_design_Satyanarayan_CHI_2012} and mobile apps \cite{mining_mobile_applications_alharbi_phdthesis_2016}. Other researchers have focused on smaller-scale projects. For instance, retargeting a design to a new size or aspect ratio \cite{learning_layouts_single_page_design_o_donovan_IEEE_2014}, or reformatting text \cite{review_automatic_docu_formatting_Hurst_DocEng_2009}, or both text and images \cite{probabilistic_auto_document_composition_Damera_Venkata_DocEng_2011}. Others have focused on getting one document to be easily readable on different screen sizes and shapes \cite{adaptiveGridBasedLayout_Jacobs_SIGGRAPH_2003}.
+The inherent drawback to human-curated databases is the time required to create and maintain them. Data mining websites, apps and other software for design or other information is discussed in the related works of this thesis \cite{mining_data_phd_thesis_uc_boulder_alharbi_yeh_2016}. Work has included platforms to collect and annotate web designs on small-scale of 300 web pages \cite{learning_on_web_design_Satyanarayan_CHI_2012} to Webzeitgeist, a repository of over 100,000 web pages and 100 million individual design elements \cite{Webzeitgeist_Kumar_CHI_2013}. Other work, after mining and extracting such client-side code, has focused on the gathering of Java Script and other interactive aspects of a UI \cite{extracting_client_side_web_app_code_Maras_WWW_2012}. 
+Other tools for designers automatically reformat websites \cite{compiling_mockups_to_flexible_UIs_Sinha_ESEC-FSE_2013} or text for different aspect ratios as discussed in this literature review \cite{adaptiveGridBasedLayout_Jacobs_SIGGRAPH_2003} or use machine learning to generate alternate page layouts \cite{learning_layouts_single_page_design_o_donovan_IEEE_2014}. Other applications involved in mining the web and extracting content include a 2005 paper that determined [??estimated??] 40-50\% of the web is template content, or ``common content or formatting that appears on multiple pages of a site'' \cite{volume_evolution_web_templates_Gibson_IW3C2_2005}. 
 
-Other works have focused on helping developers use and understand snippets of code from other sites [cite]. Work on transferring CSS from one site to other has proven helpful for both developers and designers [cite] [this might be a whole paragraph], and other projects have focused on helping non-programmers coding  \cite{dinah_non_programmers_coding_Gross_CHI_2011}. (is the sketching thing related? \cite{retrieving_websites_with_sketches_example_based_design_hashimoto_igarashi_EUROGRAPHICS_EWSBIM_2005}). (Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.).  
+With the rise of companies that sell template-based create-your-own websites (like Wix, WordPress, Shopify, Squarespace, and GoDaddy), it is easy to imagine that number has grown dramatically larger in the past 15 years. The tool Bricolage was created with the goal of allowing any existing website to become a template. It facilitates the transfer of the content of one website into the layout and design of another after learning on human-generated exemplars \cite{bricolage_Kumar_CHI_2011}. 
 
-but often leans on the assumption that designers can code and coders can design. That isn’t what reality is like: many people in industry can either code OR design. 
-
-Moreover, there is very little work being done with design systems. (already said what they are) touch again on why they are important/what the benefits are. 
+Tools like Bricolage that permit users to edit live websites are most similar to \xray; however, to our knowledge all other tools require some level of proficiency with code and are focused on assisting users to select lines of code to copy into their own projects. The work that we have discussed helps designers get inspired by finding new examples or create entirely new layouts, but is focused on large changes. \xray moves to fill this gap by facilitating designers' work with fonts, colors, and otherwise performing minor tweaks to designs. Moreover, unlike prior works, \xray facilitates the use of design systems allowing a site to have an organized system of templates, patterns, and components. 
 
 
-% \begin{itemize}
-%     \item Looking at other examples = important for both designers and developers. 
-%     Geared towards designers: Research has included design galleries and the gathering of designs (whole pages) or pieces of pages. Geared towards developers: using snippets of code from/understanding live sites. For BOTH designers and developers, there has been research about transferring CSS from one site to other. 
 
-% There are also tools and studies on However, there is very little work being done to create web dev related tools for developers. A lot of research seems to be focusing on 
 
-%     \item 
 
-% \end{itemize}
 
-% \begin{itemize}
-%     \item Use of examples in design galleries
-%     \item Patterns found after design mining
-%     \item Actual design patterns for websites
-%     \item Using snippets of code from/understanding live sites
-%     \item Other tools for developers
-%     \item Transferring CSS from one site to other
-%     \item But there are few tools for designers (list)
-%     \item Sketching tools \cite{retrieving_websites_with_sketches_example_based_design_hashimoto_igarashi_EUROGRAPHICS_EWSBIM_2005}
-%     \item Helping non-programmers select code \cite{dinah_non_programmers_coding_Gross_CHI_2011}
-%     \item Overall, designers have it really rough, and a lot of research seems to be focusing on designers who can code and coders who can design. That isn’t what reality is like: many people in industry can either code OR design. 
-%     \item Why are design systems important? What’s their benefit? [Maybe this belongs in the intro, but we’ll want to have a reference].
-%     \item Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.
-% \end{itemize}
-% 
+\subsection{Developers}
+Just as designers are often inspired by examples, developers often browse the web looking for snippets of code. Recent work has included search engines designed to gather both explanations and code examples onto one results page \cite{assieme_web_search_for_programmers_Hoffmann_UIST_2007} as well as tools designed to help programmers better understand example code. Micro-explanations, output from the Tutoron browser extension, explain snippets of CSS or unix code as well as regular expressions \cite{Head_tutorons_generating_sketchy_no_conf_no_year}. 
+
+In addition to a browser's inspector tools, there is research about alternative software to assist with debugging one's own code, as well as plugins that help users decide what code is needed to get a specific output when inspecting others' code. Unravel is a chrome extension that helps developers track and visualize changes to the HTML, CSS, and JavaScript of a live website \cite{unravel_rapid_web_app_reverse_engineering_Hibschman_UIST_2015}. 
+
+The Rehearse development environment highlights each line of example code as it is executed, and upon the user's selection of a line of relevant code, automatically identities other lines of code that are likely to be pertinent \cite{rehearse_helping_programmers_adapt_examples_Brandt_ples_CSTR}. The Java Whyline posits that it is difficult to determine what code to inspect, and allows developers to work backwards from the code output to determine the cause \cite{java_whyline_Ko_CHI_2009}. FireCrystal is a Firefox extension that helps users identify which lines of HTML, CSS, or JavaScript code cause particular results \cite{firecrystal_oney_ieee_2013}, thus enabling the user to borrow that code for their own projects. WebCrystal was inspired by FireCrystal, but is geared towards novices and allows users to ask questions about recreating particular aspects of an element on a web page \cite{webcrystal_Chang_CHI_2012}. 
+
+Talk about these similar ones here \cite{telescope_Hibschman_UIST_2016, augmented_web_rationales_opporunities_challenges_Diaz_tweb_2015, cracking_cocoa_nut_Eagan_UIST_2011, auto_and_customization_of_rendered_web_Bolin_UIST_2005}. 
+
+Other work has also focused on novices, studying how they use example code \cite{exploring_novice_programmer_example_use_ichinco_iee_2015} or creating interfaces to help them understand which lines of code are needed to get the desired output \cite{dinah_non_programmers_coding_Gross_CHI_2011}. 
+
+The difficulty with all of these tools is the required proficiency in code. \xray bridges that gap by creating a new user interface so that designers can have all the control available in inspector tools without needing to write or read any code. Previous work, such as WADE \cite{WADE_simplified_GUI_add_on_development_Meng_CHI_2014} and Prefab \cite{content_and_hierarchy_in_pixel_based_methords_for_reverse_engineering_interface_structure_Dixon_CHI_2011, prefab_original_paper_Dixon_CHI_2010}, has simplified the modification of the UI of existing GUIs. 
+
+\subsection{Bridging the gap}
+Current work often leans on the assumption that designers can code and coders can design. That isn't what reality is like: many people in industry can either code OR design. 
+
+% \subsection{trash - related works}
+% Things I haven't worked in yet: \cite{directness_and_liveness_in_morphic_UI_construction_env_Maloney_CHI_1995, cueflik_interactive_concept_leraning_Fogarty_CHI_2008}. 
+
+% (Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.).  
 
 \section{Interface and Features of XRAY}
-First: overall things. Is a chrome plugin? Can use on any website. 
+Created to assist designers working on websites,\xray is a chrome plugin written in JavaScript [check that] and is similar to inspector tools. ``WebCrystal accesses the document object model (DOM) of the web page, and treats every DOM node in the web page as a web element.'' Users can access \xray by [pressing the extension button in the top right of their screen], as shown in Figure~\ref{fig:xray_screenshot}. Once \xray is turned on, users can alter the HTML and CSS of a website of their choice by using buttons and menus, without looking at a single line of code. 
 
-Lets you adjust and change: 
+\subsection{Fonts (family, weight, color)}
+In addition to providing the font families, weights, and colors that are already in the design system, \xray 
+automatically downloads Google fonts to make them available on the website. This is often a very tedious task that requires the designer to either install the fonts locally or have access to the code.
 
+\subsection{Whitespace (margin and padding)}
+Currently, when designers are redlining a document, they only see the whitespace. \xray shows the padding and margin so that designers can better learn the difference in order to more effectively communicate with developers. 
 
-Fonts (family, weight), colors, margin, padding
+\subsection{Design system}
+\xray preforms a live audit by highlighting aspects of a website that fall outside of the existing design system to make them easier to identify. This gives developers a change to decide if they should expand the design system by including this outlier, or if they should bring the design into alignment by being more consistent and fixing the outlier. 
 
-Automatically downloads Google fonts to make them available on the website. This is often a very tedious task that requires the designer to either install the fonts locally or have access to the code.
-You can copy and paste styles from one element to the next 
+\subsection{Experimentation}
+In order to increase experimentation, \xray lets users copy and paste styles from one element to the next. These changes do not need to be from the same webpage. Users can toggle on and off aspects of those changes, and aspects from several sources can be pasted into the same element. \xray automates consistency, letting the changes percolate through not only the current page but the entire website, persisting even after page reloads. Users get an instant preview of those changes, which allows them to experiment more because they no longer need to adjust each different heading to see how it would look. 
 
+\subsection{Collaboration}
+Two people can make live edits to a website collaboratively. While our users were mixed about the practicality of this feature, one benefit is that designers can share the session with a developer so they can have a live editor with the changes, instead of a static list of the differences. 
 
-Doesn’t need to be same page
-
-Get an instant preview of those changes
-
-Can toggle on and off individual styles 
-
-This means several sources can be pasted into same element (only really important because Web Crystal focuses a lot on this).
-
-Lets you download your changes (to give to developer) (final visual changelog)
-
-Developer now knows exactly what to do
-
-Which will result in less work for designer as well
-
-Whitespace is broken down into padding and margin. Normal redline documents only show spacing, but not whether it is margin or padding.
-
-Changes persist across page reloads 
-
-Changes to symbols persist not only across page reloads but also across the whole website, even on different pages. 
-
-Can have changes permeate through a whole page
-
-Many of these things help you see the design system (trees v. forest) 
-
-Visualize website structure. Margin \& Padding is invisible and it is often difficult to know how whitespace is assigned. This tool colors the whitespace to show the structure.
-
-Gives a live audit of the design system to show elements that diverge. 
-
-I have implemented this yet, but we could make this collaborative, so two people could make live edits to a website collaboratively. It’s not very practical I don’t think, but it is shiny.
-
-A corollary to this is instead of exporting a file to give to developers, the designer can just share the session with a developer and they can have a live editor of the changes.
-
+\subsection{Download/explore final changes}
+Instead of a series of redlined screenshots, users can download the final visual changelog from \xray to give to the developer. Instead of descriptions of requested changes, the changelog is code, making it easy for the developer to make the website look exacly as it did when the designer finished tweaking and adjusting it using \xray. This will eliminate the need of further back-and-forth communications. 
 
 \section{User Study}
 \subsection{Participants}
@@ -338,24 +315,31 @@ And fill in this section too
 \subsection{Results}
 And put some graphs and stats and stuff in here
 
-\section{Discussion (hard to write until we have results)}
-Implications of results to science
-Implications of results to practice 
-Limitations
-Further research 
-
-
-\section{Conclusion}
+\section{Conclusion/discussion}
 Discuss benefits...
+\begin{itemize}
+    \item promotes use of design system
+    \item improves designer-developer communication
+    \item this gets designers into the same medium that developers are using (ie, ``writing code'' except they are still in their comfort zone'')
+
+\end{itemize}
 
 Discuss harm/risks/dangers/drawbacks...
+\begin{itemize}
+    \item ...I need to think about this...
+\end{itemize}
+
+Discuss limitations of our work 
+\begin{itemize}
+    \item margin/padding issue is not yet solved
+    \item there needs to be more conversation about design systems
+
+\end{itemize}
 
 Discuss future work/room to grow...
-
-
-
-
-
+\begin{itemize}
+    \item see the limitations and drawback sections above. 
+\end{itemize}
 
 
 % BALANCE COLUMNS
