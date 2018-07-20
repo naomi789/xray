@@ -164,7 +164,7 @@
 \maketitle
 
 \begin{abstract}
-Numerous tools have been created to facilitate developers' borrowing of code from live websites and design examples. However, little work has been done to improve the experience of designers working on partially-developed or live sites. This paper introduces \xray, inspector tools for designers (Figure~\ref{fig:xray_screenshot}). Unlike traditional inspector tools, \xray allows the designer to adjust fonts, colors, margins, and padding without ever needing to look at HTML or CSS, making this technical, traditionally code-based task more approachable for designers. \xray promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. \xray also improves designer-developer communication by allowing people in different locations are able to make live edits to a website collaboratively. \xray allows users to export a document with all changes at the end of their session. 
+Numerous tools have been created to facilitate developers' borrowing of code from live websites and design examples. However, little work has been done to improve the experience of designers working on partially-developed or live sites. This paper introduces \xray, inspector tools for designers (Figure~\ref{fig:xray_screenshot}). Unlike traditional inspector tools, \xray allows the designer to adjust fonts, colors, margins, and padding within the browser without ever needing to look at HTML or CSS, making this technical, traditionally code-based task more approachable for designers. \xray promotes the use of design systems by only suggesting styling options that exist in the current design system and highlighting where current aesthetics violate the design system. \xray also improves designer-developer communication by allowing people in different locations are able to make live edits to a website collaboratively. \xray allows users to export a document with all changes at the end of their session. 
 Moreover, a 12 person user study with novices and a 12-person user study with professional designers showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools. 
 \end{abstract}
 
@@ -196,7 +196,7 @@ Some designers will meet with the developers, sitting next to them and explainin
 
 The ability to write comments on a screen simplifies the revision process. Instead of writing an essay for each bullet point (``the icon of a drill on the top left of the home page should be enclosed by a circle instead of a square''), the designer can draw an arrow to the icon they are dissatisfied with and write ``should be a circle.'' 
 
-However, when it comes to colors, padding, and other sizing issues, detail is key. Instead of saying ``this black should match the black background on the homescreen'', why not just tell the developer the hexcode of the color it should be? Additionally, prior work shows the benefits of experimentation, yet writing notes on screenshots does not really provide that opportunity. Ideally, when the designer notices that the line height is too large, they would have the opportunity to see what the page would look like with 1.1em, 1.2em, and 1.3em before telling the developer which one is best. 
+However, when it comes to colors, padding, and other sizing issues, detail is key. Instead of saying ``this black should match the black background on the homescreen'', why not just tell the developer the hexcode should be \#000000? Additionally, prior work shows the benefits of experimentation, yet writing notes on screenshots does not really provide the opportunity to expirement and try new ideas. Ideally, when the designer notices that the line height is too large, they would have the opportunity to see what the page would look like with 1.1em, 1.2em, and 1.3em before telling the developer which one is best. 
 
 \begin{figure}
     \centering
@@ -211,8 +211,9 @@ However, when it comes to colors, padding, and other sizing issues, detail is ke
 % of colors, fonts, spacing rules, and a library of pre-built widgets used in one website, app, or company.  
 Currently, the developers are gatekeepers: they control the design and aesthetics of a finished product even though they do not have the knowledge or training that a designer does. The designers are in the uncomfortable position of knowing exactly how the final product should look, but are unable to create it themselves. 
 
-In order to provide designers with more control, many companies are creating design systems. Just as developers use a style guide in order to have a standardized way of doing things, designers create design systems. 
+In order to provide designers with more control, many companies are creating design systems. Just as developers use a style guide in order to have a standardized way of writing code, designers create design systems to standardize the look and feel of a product. 
 % Many customers associate certain fonts or color palettes with a particular company logo. 
+
 Most companies strive to be consistent in their use of colors and fonts across websites, emails, advertising campaign, and apps [cite]. Design systems evolved from these style guides. Couldwell walks through how WeWork created a design system which contains not only font families, font sizes, and colors, but also templates, patterns (which include recurring elements or practices like navigation, cards, tables, or alerts), and components (pre-built widgets, such as buttons, sliders, or inputs, selects, toggles, avatars, tooltips, and etc) \cite{design_system_at_plasma_couldwell_medium_2017}. 
 
 % there aren't research papers about design systems (site that airbnb paper, large companies that have these design systems) 
@@ -238,7 +239,7 @@ In order to 1. improve the experience of web designers, 2. improve their collabo
     
     \item Designer-developer communication is improved because people in different locations are able to make live edits to a website collaboratively. At the end of a session, designers can export a document with all of their final changes noted in HTML and CSS to give to the developer.  
     
-    \item A within-subject evaluation of \xray in comparison to the industry standard of using Sketch(c) to note flaws in a website. We had a total of 24 partcipants, half of whom were design professionals with a minimum of five years' experience, and half of whom were design students at our university. Our results showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools.
+    \item A within-subject evaluation of \xray in comparison to the industry standard of using Sketch(c) to note flaws in a website. We had a total of 24 partcipants, half of whom were design professionals with a minimum of five years' experience, and half of whom were design students at a competetive private university. Our results showed that people were xx\% more efficient, yy\% more successful, and experimented more by using zz\% more styles when they used \xray, than when they used the standard industry tools.
 \end{itemize}
 
 
@@ -281,11 +282,12 @@ Previous work, such as WADE \cite{WADE_simplified_GUI_add_on_development_Meng_CH
 Current work often leans on the assumption that designers can code and coders can design. That isn't what reality is like: many people in industry can either code OR design. Although there are many phenomenal tools for designers, most are either geared towards inspiring designers with examples and new ideas, or other big-picture changes, like entirely new layouts. These tools do not give designers sufficient control to assist in the polishing of a final project. 
 
 Tools that facilitate the tweaking of a near-finished project are geared towards developers and require at least some coding proficiency. We move to bridge this gap between developers and designers by allowing designers to work in the same medium as the developers. Instead of spending time taking screenshots, and writing directions in plain text, with \xray designers are able to get the website looking precisely the way it should, and then send developers the code required to implement the changes.  
-
 % \subsection{trash - related works}
 % Things I haven't worked in yet: \cite{directness_and_liveness_in_morphic_UI_construction_env_Maloney_CHI_1995, cueflik_interactive_concept_leraning_Fogarty_CHI_2008}. 
 
 % (Linked Editing (https://dl.acm.org/citation.cfm?id=1034566) This might not fit here, but it should give us language when we talk about editing multiple instances at the same time.).  
+
+
 
 \section{Interface and Features of XRAY}
 Created to assist designers working on websites, \xray is a chrome plugin written in JavaScript [check that] and is similar to inspector tools. ``WebCrystal accesses the document object model (DOM) of the web page, and treats every DOM node in the web page as a web element.'' Users can access \xray by [pressing the extension button in the top right of their screen], as shown in Figure~\ref{fig:xray_screenshot}. Once \xray is turned on, users can alter the HTML and CSS of a website of their choice by using buttons and menus, without looking at a single line of code. 
@@ -310,18 +312,41 @@ Two people can make live edits to a website collaboratively. While our users wer
 Instead of a series of redlined screenshots, users can download the final visual changelog from \xray to give to the developer. Instead of descriptions of requested changes, the changelog is code, making it easy for the developer to make the website look exacly as it did when the designer finished tweaking and adjusting it using \xray. This will eliminate the need of further back-and-forth communications. 
 
 \section{User Study}
+We surveyed designers and found that xx\% of them said task AA was frequently part of their work and yy\% of them said that BB described their work well, therefore we designed the user study 
+\subsection{Study Design}
+
 \subsection{Participants}
-12 students
-12 professionals
+We had twelve different students participate in our user study. Of them, xx\% were female. YY\% were undergraduate students. We only selected participants who had ranked their skill [in design??] as a 3 or higher out of 5 where a 3 was a [quantification] (or had inspector tool experience??). The study was approved by our IRB and no adverse affects were reported during the study. The study took approximately 60 minutes to complete and we paid students \$ZZ for participating. 
+
 
 \subsection{Tasks}
-A, B, C (or) A, B
+All users were given a design system and the same nine steps/tasks to complete in order to bring an existing website into [fitting the system]. The tasks included switching font family, changing background color, editing text, adding whitespace, adjusting shadows on buttons, and swapping out an image. 
+
 
 \subsection{Procedure}
 And fill in this section too
 
 \subsection{Results}
-And put some graphs and stats and stuff in here
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/completion_rates.PNG}
+    \caption{more people finished the tasks when they used our tool}  
+    \label{fig:xray_screenshot}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/completion_time.PNG}
+    \caption{people were faster when they used our tool}  
+    \label{fig:xray_screenshot}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/nasa_tlx.PNG}
+    \caption{it was cognitively lighter to finish with the XRAY tool}  
+    \label{fig:xray_screenshot}
+\end{figure}
 
 \section{Conclusion/discussion}
 Discuss benefits...
